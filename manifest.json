@@ -1,0 +1,41 @@
+{   //这里必须是2
+    "manifest_version": 2,
+    //扩展名称
+    "name": "maskTool",
+    //扩展版本
+    "version": "1.0",
+    //扩展描述
+    "description": "用于生成遮罩",
+    //扩展图标(在扩展中心显示)
+    "icons": {
+        // "16": "images/icon16.png",
+        // "48": "images/icon128.png",
+        // "128": "images/icon128.png"
+    },
+    //配置页面
+    // "options_page": "options.html",//配置项页面
+    //扩展图标配置
+    "browser_action": {
+        "default_popup": "main.html",
+        "default_titlec": "遮罩工具",
+        "default_icon": {
+            // "16": "images/icon16.png"
+        }
+    },
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "css": ["css/main.css"],
+          "js": ["js/mask.js"],
+          "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": true
+    },
+    //权限声明
+    "permissions": [
+        "tabs"
+    ]
+}
